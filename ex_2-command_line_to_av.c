@@ -2,22 +2,27 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+* main - prints every paramater from input
+*
+* Return: Always 0
+*/
 int main(void)
 {
-        char *buffer, *delim, *params;
-        size_t b_size;
+	char *buffer, *delim, *params;
+	size_t b_size;
 	int i;
 
-        b_size = 32;
-        buffer = malloc(sizeof(char) * b_size);
+	b_size = 32;
+	buffer = malloc(sizeof(char) * b_size);
 	delim = " ";
 	i = 0;
 
-        printf("$ ");
+	printf("$ ");
 
-        getline(&buffer, &b_size, stdin);
+	getline(&buffer, &b_size, stdin);
 
-        printf("Command entered is: %s", buffer);
+	printf("Command entered is: %s", buffer);
 
 	params = strtok(buffer, delim);
 
@@ -29,6 +34,6 @@ int main(void)
 		params = strtok(NULL, delim);
 		i++;
 	}
-		
-        return (0);
+
+	return (0);
 }
